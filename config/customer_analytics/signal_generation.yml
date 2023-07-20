@@ -1,0 +1,23 @@
+db:  # database config if NPS signal is generated
+  from_date: 2023-01-01
+  to_date: 2023-01-30
+signal:
+  size: null
+  type: nps  # options = [nps, gs1, gs2, bandlimited]
+  add_noise: false  # whether to add random Gaussian noise
+  noise:  # params of the Gaussian noise
+    mean: 0  # mean
+    std: 0.1  # standard deviation
+  bandlimited:  # extra configuration for the bandlimited signal
+    k: 10  # bandlimit (number of eigenvectors to take into the linear combination)
+    gft_coef_mean: 0  # mean of random GFT coefficients
+    gft_coef_var: 10  # variance of random GFT coefficients
+in:
+  dir: out/customer_analytics/2023-01  # input directory
+  files:  # input files
+    adj_matrix: graph/adj_matrix.npz
+    client_ids: data/client_ids.csv
+out:
+  dir: out/customer_analytics/2023-01/signal  # output directory
+  files:  # output files
+    signal: nps.npy

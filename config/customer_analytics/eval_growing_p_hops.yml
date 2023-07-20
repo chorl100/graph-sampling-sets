@@ -1,0 +1,18 @@
+method:
+  k: 500  # sampling budget
+  mu: 0.01
+  eps: 1e-5
+  parallel: true
+p_hops: [4, 8, 12]  # p-hop neighborhood sizes to try
+in:
+  dir: out/customer_analytics/2023-01  # input directory
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    client_ids: data/client_ids.csv
+    signal: signal/nps.npy
+out:
+  dir: out/customer_analytics/2023-01/reconstruction/growing_p_hops/nps  # output directory
+  files:
+    eig_lower_bound: eig_lower_bound.pdf
+    mse: mse.pdf
+    smoothness: smoothness.pdf

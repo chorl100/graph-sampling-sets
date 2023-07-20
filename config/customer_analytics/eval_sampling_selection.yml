@@ -1,0 +1,19 @@
+max_hops: 12
+plot:
+  alpha: 0.6
+  figsize: [6, 6]
+in:
+  dir: out/customer_analytics/2023-01
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    actual_set: set_extension/extended_sampling_set.csv
+    pred_set: set_selection/sampling_set.csv
+    client_ids: data/client_ids.csv
+    actual_client_ids: set_extension/client_ids_extended_sampling_set.csv
+    pred_client_ids: set_selection/client_ids_sampling_set.csv
+out:
+  dir: out/customer_analytics/2023-01/eval/pred_vs_actual
+  files:
+    neighborhood: neighborhood.txt
+    stats: stats.csv
+    venn_diagram: venn_diagram.pdf

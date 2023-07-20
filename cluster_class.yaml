@@ -1,0 +1,45 @@
+%YAML 1.1
+---
+
+# Used configurations for clusters in Google Cloud Dataproc.
+
+cluster-classes:
+
+    standard-96:
+        description: Single standard Node with 360 GB RAM and 96 vCPUs n1-standard
+        owner: christopher
+        deletion:
+            max-age: 12h
+        master:
+            machine-type: n1-standard-96
+            boot-disk-size: 100GB
+            boot-disk-type: pd-ssd
+        single-node: true
+        parent-classes:
+            - common
+            - highmem
+            - nonlive
+
+
+    gpu-2-highmem:
+        description: GPU cluster with Nvidia Tesla T4 and single standard node with 120 GB RAM and 32 vCPUs n1-standard
+        owner: christopher
+        deletion:
+            max-age: 12h
+        hidden: true
+        machine-type: gpu-nvidia
+        initialization:
+            actions:
+                - gs://vfde-dh-de-github/code/utilities/gcp-cluster/initialization-actions/install_gpu.sh
+        master:
+            machine-type: n1-standard-32
+            boot-disk-size: 100GB
+            boot-disk-type: pd-ssd
+            accelerator:
+                type: nvidia-tesla-t4
+                count: 2
+        single-node: true
+        parent-classes:
+            - common
+            - python3
+            - nonlive

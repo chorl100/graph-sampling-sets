@@ -1,0 +1,12 @@
+graph:
+  size: 500  # number of nodes
+  class: sensor  # graph class to build; possible are the methods from graph_builder.py
+  signal: gs1  # type of graph signal to generate
+method:
+  sampling_budgets: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]  # sampling budgets (either integers or percentages from (0, 1))
+  #sampling_budgets: [150, 200, 250, 300, 350, 400, 450, 500, 550, 600]  # sampling budgets for Minnesota graph
+  mu: 0.01  # (default: 0.01)
+  eps: 1e-5  # (default: 1e-5)
+  p_hops: 12  # size of neighborhood (number of hops) (default: 12)
+  runs: 5  # number of repetitions of the experiment
+seed: 1234  # seed for reproducibility

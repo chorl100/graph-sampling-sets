@@ -1,0 +1,10 @@
+graph:
+  sizes: [100, 500, 1000, 2500, 5000, 7500, 10000, 15000]  # num nodes
+  class: sensor # graph class to build; possible are the methods from graph_builder.py
+method:
+  k: 0.1  # sampling budget (either integer or percentage from (0, 1))
+  mu: 0.01  # (default: 0.01)
+  eps: 1e-5  # (default: 1e-5)
+  runs: 5  # number of repetitions of the experiment
+  parallel: false
+seed: 0  # seed for reproducibility

@@ -1,0 +1,15 @@
+plot:  # plot configuration
+  alpha: 0.8
+  colorbar: true
+  node_size: 10
+  figsize: [6, 6]
+in:
+  dir: out/customer_analytics/2023-01
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    signal: signal/nps.npy
+    zip_codes: data/zip_codes.csv
+out:
+  dir: out/customer_analytics/2023-01/plots/signal
+  files:
+    graph_signal: graph_signal.pdf

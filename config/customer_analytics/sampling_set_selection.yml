@@ -1,0 +1,17 @@
+method:
+  k: 500  # sampling budget
+  mu: 0.01  # regularization strength of smoothness prior
+  eps: 1e-5  # precision of binary search
+  p_hops: 6  # size of p-hop neighborhood
+  parallel: true  # whether to parallelize the execution
+in:
+  dir: out/customer_analytics/2023-01  # input directory
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    client_ids: data/client_ids.csv
+out:
+  dir: out/customer_analytics/2023-01/set_selection  # output directory
+  files:
+    client_ids_sampling_set: client_ids_sampling_set.csv
+    results: runtime_sampling.json
+    sampling_set: sampling_set.csv

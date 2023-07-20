@@ -1,0 +1,23 @@
+preselection:
+  rand: true  # whether to take a random preselection
+  size: 50  # size of random preselection (if rand is True)
+  set: none  # custom preselection set
+method:
+  k: 500  # sampling budget
+  mu: 0.01  # regularization strength
+  eps: 1e-5  # precision of binary search
+  p_hops: 6  # size of p-hop neighborhood
+  parallel: true  # whether to use parallelization
+in:
+  dir: out/customer_analytics/2023-01
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    client_ids: data/client_ids.csv
+out:
+  dir: out/customer_analytics/2023-01/set_extension
+  files:
+    results: runtime_extension.json
+    preselection: preselection.csv
+    extended_set: extended_sampling_set.csv
+    client_ids_extended_set: client_ids_extended_sampling_set.csv
+    client_ids_extended_set_wo_preselect: client_ids_extended_sampling_set_wo_preselection.csv

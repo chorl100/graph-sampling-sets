@@ -1,0 +1,25 @@
+graph:
+  device: cpu  # device on which to work (gpu only needed for construction of the entire graph (all customers))
+  type: knn  # graph constructor to use; available options are [knn, knn_gpu, gauss]
+  knn: # required for type "knn" (*best model in experiments*)
+    n_neighbors: 50  # number of neighbors per node (final node degrees can be higher due to symmetrization)
+    gauss_percentile: 25  # percentile of distances to use for scaling in the Gauss kernel
+  knn_gpu:  # required for type "knn_gpu"
+    k: 50  # number of neighbors
+    multi_gpu: false  # whether to spread the workload on multiple GPUs
+    directed: false  # whether the graph should be directed
+    weighted: true  # whether the edges are weighted
+  gauss:  # required for type "gauss"
+    sigma: null  # scaling parameter for distances
+    thres: 0.03  # threshold for edge discarding; edges between nodes with higher distance are removed
+    val_range: [0, 1]  # value range of normalized distances
+    n_rand_edges: 10  # number of random edges to add per isolated node to ensure connectivity
+    rand_weight: 0.1  # weight of random edges
+in:
+  dir: out/customer_analytics/2023-01/data  # input directory
+  files:
+    data: car.parquet
+out:
+  dir: out/customer_analytics/2023-01/graph  # output directory
+  files:
+    adj_matrix: adj_matrix.npz

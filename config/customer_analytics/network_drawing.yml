@@ -1,0 +1,21 @@
+plot:  # plot configuration
+  alpha: 0.7
+  node_size: 10
+  figsize: [6, 6]
+in:
+  dir: out/customer_analytics/2023-01
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    preselection: set_extension/preselection.csv
+    extended_set: set_extension/extended_sampling_set.csv
+    sampling_set: set_selection/sampling_set.csv
+    client_ids: data/client_ids.csv
+    client_ids_extended_set: set_extension/client_ids_extended_sampling_set.csv
+    client_ids_extended_set_wo_preselect: set_extension/client_ids_extended_sampling_set_wo_preselection.csv
+    zip_codes: data/zip_codes.csv
+out:
+  dir: out/customer_analytics/2023-01/plots/set_extension
+  files:
+    pre_vs_ext: graph_preselected_vs_extended.png
+    pre_vs_sampled: graph_preselected_vs_sampled.png
+    ext_vs_sampled: graph_extended_vs_sampled.png

@@ -1,0 +1,18 @@
+preselected: false  # whether to compare to preselection
+extended: false  # whether to compare to extended sample
+sampled: true  # whether to compare to sampled set (without preselection)
+in:
+  dir: out/customer_analytics/2023-01  # input directory
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    client_ids: data/client_ids.csv
+    preselection: set_extension/preselection.csv
+    extended_set: set_extension/extended_sampling_set.csv
+    sampling_set: set_selection/sampling_set.csv
+    signal: signal/nps.npy
+out:
+  dir: out/customer_analytics/2023-01/reconstruction  # output directory
+  files:
+    results: results.json
+    mse: mse.pdf
+    smoothness: smoothness.pdf

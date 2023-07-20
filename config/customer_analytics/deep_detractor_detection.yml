@@ -1,0 +1,22 @@
+method:
+  k: 500  # sampling budget
+  mu: 0.01  # regularization strength of smoothness prior
+  eps: 1e-5  # precision of binary search
+  p_hops: 6  # number of hops to take in the node neighborhood
+  parallel: true  # whether to parallelize the algorithm where possible
+thresh: null  # threshold to use for classification (optional)
+in:
+  dir: out/customer_analytics/2023-01  # input directory
+  files:
+    adj_matrix: graph/adj_matrix.npz  # adjacency matrix
+    client_ids: data/client_ids.csv  # list of client ids
+    signal: signal/nps.npy  # signal vector
+out:
+  dir: out/customer_analytics/2023-01/dd_detection  # output directory
+  files:
+    precision_recall_curve: precision_recall_curve.pdf
+    pred: pred_dd.csv  # node ids of predicted DDs
+    pred_client_ids: pred_dd_client_ids.csv
+    signal_rec: nps_reconstructed.npy  # reconstructed signal
+    stats: performance_metrics.json  # performance metrics
+    thresh: thresholds.npy  # thresholds tested for precision-recall curve

@@ -1,0 +1,11 @@
+db:  # database
+  from_date: 2023-01-01
+  to_date: 2023-01-30
+  sample: true  # whether to use a sample of the available ground-truth data
+  sample_size: 2000
+out:
+  dir: out/customer_analytics/2023-01/data  # output directory
+  files:
+    client_ids: client_ids.csv
+    data: car.parquet
+    zip_codes: zip_codes.csv

@@ -1,0 +1,20 @@
+method:
+  mu: 0.01  # regularization strength of smoothness prior
+  eps: 1e-5  # precision of binary search
+  p_hops: 6  # number of hops to take in the node neighborhood
+  parallel: true  # whether to parallelize the algorithm where possible
+sampling_budgets:
+    interval: [10, 100]  # range of sample sizes
+    num_samples: 10  # number of values to try (linearly spaced)
+in:
+  dir: out/customer_analytics/2023-01  # input directory
+  files:
+    adj_matrix: graph/adj_matrix.npz
+    client_ids: data/client_ids.csv
+    signal: signal/nps.npy
+out:
+  dir: out/customer_analytics/2023-01/reconstruction/growing_budget/nps  # output directory
+  files:
+    eig_lower_bound: eig_lower_bound.pdf
+    mse: mse.pdf
+    smoothness: smoothness.pdf
